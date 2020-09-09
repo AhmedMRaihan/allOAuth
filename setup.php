@@ -7,7 +7,7 @@ Plugin URI: https://github.com/MythicAngel/Wordpress-Solutions
 Description: This plugin allow users to login via Google and Facebook's OAuth.
 Author: seoul
 Author URI: http://www.mythicangel.com
-Version: 4.0
+Version: 5.0
 */
 include_once ("myan_OAuth_Information.php");
 include_once ("ajax_endpoints.php");
