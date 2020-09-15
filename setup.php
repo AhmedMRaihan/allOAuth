@@ -55,7 +55,7 @@ $isOAuthUser = get_user_meta($user->ID, 'loggedInViaGeneralOAuth');
 if(count($isOAuthUser) == 0)
 	return $user;
 ?> 
-<h3>OAUTH profile information</h3>
+<h3>OAuth profile information</h3>
 <table class="form-table">
 	<tr>
 		<th><label for="image">User ID</label></th>
@@ -90,7 +90,7 @@ function execute_ALSDKFLSDMC347529DFIDK823($OAUTH_PROVIDER, $whereToReturnOnSucc
 		$oauth->js_connect_info();
 	}catch(Exception $e)
 	{
-		echo "<script type='text/javascript'>if(console) console.log('Error in providing OAUTH plugin: { $e->getMessage()}')</script>";
+		echo "<script type='text/javascript'>if(console) console.log('Error in providing OAuth plugin: { $e->getMessage()}')</script>";
 	}
 }
 
@@ -108,7 +108,7 @@ class oauth_options_page {
 		register_widget( '\MyanOAuth\OAuthButton_Widget' );
 	}
 	function admin_menu () {
-		add_options_page('OAUTH Appid Management','OAUTH Settings','manage_options','general_oauth_appid', array( $this, 'general_oauth_menupage' ) );
+		add_options_page('OAuth Appid Management','OAuth Settings','manage_options','general_oauth_appid', array( $this, 'general_oauth_menupage' ) );
 		// add_options_page('OAUTH Login Information', 'OAUTH Login Manage', 'edit_posts', 'oauth-msg-to-user', array($this, 'msg_to_user'));
 	}
 	
@@ -237,7 +237,7 @@ class oauth_options_page {
 		$valueForProfilePic = get_option('general_oauth_showProfilePic');
 		
 		$inputValues = array();
-		$inputValues[] = (object) array('message'=>'OAUTH password for all user', 'value' => $valueForPassword, 'name' => 'general_oauth_password');
+		$inputValues[] = (object) array('message'=>'OAuth password for all user', 'value' => $valueForPassword, 'name' => 'general_oauth_password');
 		$inputValues[] = (object) array('message'=>'Type a google app id*', 'value' => $valueFromWPGoogle, 'name' => 'gplus_oauth_appid_value');
 		$inputValues[] = (object) array('message'=>'Type a facebook app id**', 'value' => $valueFromWPFacebook, 'name' => 'facebook_oauth_appid_value');
 		$inputValues[] = (object) array('message'=>'Open graph image url', 'value' => $valueForOGImage, 'name' => 'general_oauth_openGraphImage');
@@ -257,7 +257,7 @@ class oauth_options_page {
 		}
 		?>
 		<h1>Select choice on profile picture display:</h1> <form method='get' action='<?PHP echo $pageURL;?>'>
-		<input type='radio' name='general_oauth_showProfilePic' value='show'>Yes, 'show' from OAUTH-Provider<br>
+		<input type='radio' name='general_oauth_showProfilePic' value='show'>Yes, 'show' from OAuth provider<br>
 		<input type='radio' name='general_oauth_showProfilePic' value='hide'>No, 'hide' it and show default<br>
 		<input type='hidden' name='page' value='general_oauth_appid'/> <input type='submit' class='button button-primary' value='Submit'/></form>
 		<br/><strong>Current value:</strong> <?PHP echo $valueForProfilePic; ?>
