@@ -3,7 +3,7 @@
 
 /*
 Plugin Name: OAuthLogin Support
-Plugin URI: https://github.com/MythicAngel/Wordpress-Solutions
+Plugin URI: https://github.com/AhmedMRaihan/allOAuth
 Description: This plugin allow users to login via Google and Facebook's OAuth.
 Author: seoul
 Author URI: http://www.mythicangel.com
