@@ -2,8 +2,7 @@
 A simple yet feature rich plugin to allow visitors and users login via Google and Facebook
 
 # Version history
-## 5.0
- * Moved to dedicated repository for Germanprobashe.com organization
+## 5.1
  * Integrated webhook support within Github
 ## 4.0
  * Email is a required field now
