@@ -121,26 +121,29 @@ function myan_oauthWordpress_login_callback()
 		if(is_wp_error($user))
 			throw new Exception($user->get_error_message());
 			
-		/* Profile pic update for authors only */	
+		/* Profile pic storage */	
 		$profilePictureUrl = $userDataFromServer->profile_pic;
-		if(user_can($userObject->ID, 'edit_published_posts' ))
+		$upload_dir = wp_upload_dir();
+		$localImagePath = $upload_dir['basedir'] . "/allOAuth_images/". $userObject->ID. ".jpg";
+		$localImageExists = file_exists($localImagePath);
+		
+		if(get_user_meta($userObject->id, 'oauth_user_original_profile_pic', null) != $profilePictureUrl && $localImageExists)
 		{
-			$localImagePath = plugin_dir_path( __FILE__ ) . "images/". $userObject->ID. ".jpg";
-			$localImageExists = file_exists($localImagePath);
-			
-			if(get_user_meta($userObject->id, 'oauth_user_original_profile_pic', null) != $profilePictureUrl && $localImageExists)
+			unlink($localImagePath);
+			$localImageExists = false;
+		}
+		if( $localImageExists == false)
+		{
+			$dirname = dirname($localImagePath);
+			if (!is_dir($dirname))
 			{
-				unlink($localImagePath);
-				$localImageExists = false;
+				mkdir($dirname, 0755, true);
 			}
-			if( $localImageExists == false)
-			{
-				$content = file_get_contents($profilePictureUrl);
-				$fp = fopen($localImagePath, "w");
-				fwrite($fp, $content);
-				fclose($fp);
-				$profilePictureUrl = plugin_dir_url( __FILE__ ) . "images/". $userObject->ID. ".jpg";
-			}
+			$content = file_get_contents($profilePictureUrl);
+			$fp = fopen($localImagePath, "w");
+			fwrite($fp, $content);
+			fclose($fp);
+			$profilePictureUrl = $upload_dir['basedir'] . "/allOAuth_images/" . $userObject->ID. ".jpg";
 		}
 		
 		/* Update metadata */
@@ -156,8 +159,8 @@ function myan_oauthWordpress_login_callback()
 	}
 	catch(Exception $e)
 	{
-		//echo '<strong>Caught exception:</strong> ',  $e->getMessage(), "\n";
-		//header('412 Precondition Failed');
+		echo '<strong>Caught exception:</strong> ',  $e->getMessage(), "\n";
+		header('412 Precondition Failed');
 		header('Location: '. get_bloginfo('url').'?p=-9999&error='. urlencode($e->getMessage()) );
 	}
 	DIE;
