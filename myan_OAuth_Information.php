@@ -129,7 +129,8 @@ private function php_validateToken_google($token){
 	return $userDataFromServer;
 }
 private function php_validateToken_facebook($token){
-	$apiVersion = "v8.0";
+	// validate in Graph API explorer with version: me?fields=id,name,email,cover,picture.width(300).height(300)&access_token=
+	$apiVersion = "v10.0";
 	$facebookApiPrefix = sprintf("https://graph.facebook.com/%s", $apiVersion);
 	
 	// Step1: CSRF validation: Provided token should be issued for this app	
