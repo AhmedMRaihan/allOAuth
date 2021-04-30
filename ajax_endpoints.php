@@ -159,7 +159,7 @@ function myan_oauthWordpress_login_callback()
 	}
 	catch(Exception $e)
 	{
-		echo '<strong>Caught exception:</strong> ',  $e->getMessage(), "\n";
+		//echo '<strong>Caught exception:</strong> ',  $e->getMessage(), "\n";
 		header('412 Precondition Failed');
 		header('Location: '. get_bloginfo('url').'?p=-9999&error='. urlencode($e->getMessage()) );
 	}
