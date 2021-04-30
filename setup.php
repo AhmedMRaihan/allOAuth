@@ -13,7 +13,8 @@ include_once ("myan_OAuth_Information.php");
 include_once ("ajax_endpoints.php");
 
 function myan_delete_user( $user_id ) {
-	$localImagePath = plugin_dir_path( __FILE__ ) . "images/". $user_id. ".jpg";
+	$upload_dir = wp_upload_dir();
+	$localImagePath = $upload_dir['basedir'] . "/allOAuth_images/". $user_id. ".jpg";
 	if(file_exists($localImagePath))
 		unlink($localImagePath);
 }
