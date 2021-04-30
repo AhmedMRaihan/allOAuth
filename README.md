@@ -3,7 +3,7 @@ A simple yet feature rich plugin to allow visitors and users login via Google an
 
 # Version history
 
-## 6.1
+## 6.2
  * To integrate WP Pusher, OAuth images are stored in uploads folder
 ## 5.1
  * Integrated webhook support within Github
