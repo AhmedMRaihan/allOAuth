@@ -143,7 +143,7 @@ function myan_oauthWordpress_login_callback()
 			$fp = fopen($localImagePath, "w");
 			fwrite($fp, $content);
 			fclose($fp);
-			$profilePictureUrl = $upload_dir['basedir'] . "/allOAuth_images/" . $userObject->ID. ".jpg";
+			$profilePictureUrl = $upload_dir['baseurl'] . "/allOAuth_images/" . $userObject->ID. ".jpg";
 		}
 		
 		/* Update metadata */
