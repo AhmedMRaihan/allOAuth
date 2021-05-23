@@ -41,7 +41,9 @@ function myan_goauth_redirect(){
 <html><head>
 </head>
 <body>
-Redirecting for validation &hellip;
+<?PHP 
+_e("Redirecting for validation", 'allOAuth');
+echo ' &hellip;';
 <script type="text/javascript">
 (function(){
 	try{
@@ -155,7 +157,8 @@ function myan_oauthWordpress_login_callback()
 			throw new Exception($user->get_error_message());
 		
 		$home = urldecode($_GET['redirect_uri']);
-		echo "<html><head><meta http-equiv='refresh' content='1; url=$home'></head><body>Validation is successful. Please wait &hellip;</body></html>";
+		$validation_message = __("Validation is successful. Please wait", 'allOAuth');
+		echo "<html><head><meta http-equiv='refresh' content='1; url=$home'></head><body>$validation_message &hellip;</body></html>";
 	}
 	catch(Exception $e)
 	{

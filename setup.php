@@ -7,10 +7,26 @@ Plugin URI: https://github.com/AhmedMRaihan/allOAuth
 Description: This plugin allow users to login via Google and Facebook's OAuth.
 Author: seoul
 Author URI: http://www.mythicangel.com
-Version: 6.2
+Version: 7.1
 */
 include_once ("myan_OAuth_Information.php");
 include_once ("ajax_endpoints.php");
+
+add_action( 'init', 'allOAuth_load_textdomain' );
+  
+/**
+ * Load plugin textdomain.
+ */
+function allOAuth_load_textdomain() {
+	$locale = Locale::acceptFromHttp($_SERVER['HTTP_ACCEPT_LANGUAGE']);
+	$locale = empty($locale) ? 'en_US' : $locale;
+
+	$plugin = 'allOAuth';
+	$mofile = $plugin . '-' . $locale . '.mo';
+
+	$domain_path = path_join( WP_PLUGIN_DIR, "{$plugin}/languages" );
+	load_textdomain( $plugin, path_join( $domain_path, $mofile ) );
+}
 
 function myan_delete_user( $user_id ) {
 	$upload_dir = wp_upload_dir();

@@ -1,0 +1,7 @@
+#: ajax_endpoints.php
+msgid "Validation is successful. Please wait"
+msgstr ""
+
+#: ajax_endpoints.php
+msgid "Redirecting for validation"
+msgstr ""
