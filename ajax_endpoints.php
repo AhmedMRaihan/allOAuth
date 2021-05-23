@@ -44,6 +44,7 @@ function myan_goauth_redirect(){
 <?PHP 
 _e("Redirecting for validation", 'allOAuth');
 echo ' &hellip;';
+?>
 <script type="text/javascript">
 (function(){
 	try{
