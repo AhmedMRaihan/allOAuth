@@ -280,7 +280,7 @@ class oauth_options_page {
 		<br/><strong>Current value:</strong> <?PHP echo $valueForProfilePic; ?>
 		
 		<hr/>
-		<br/>*=Get a google app id <a href='https://console.developers.google.com/apis/credentials' target='_blank'>here</a> and test <a href='https://developers.google.com/apis-explorer/'>here</a>
+		<br/>*=Get a google app id <a href='https://console.developers.google.com/apis/credentials' target='_blank'>here</a> and test <a href='https://developers.google.com/oauthplayground/#step1&apisSelect=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%2Chttps%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&url=https%3A%2F%2F&content_type=application%2Fjson&http_method=GET&useDefaultOauthCred=unchecked&oauthEndpointSelect=Google&oauthAuthEndpointValue=https%3A%2F%2Faccounts.google.com%2Fo%2Foauth2%2Fv2%2Fauth&oauthTokenEndpointValue=https%3A%2F%2Foauth2.googleapis.com%2Ftoken&includeCredentials=unchecked&accessTokenType=bearer&autoRefreshToken=unchecked&accessType=offline&prompt=consent&response_type=code&wrapLines=on'>here</a>
 		<br/>**=Get a facebook app id <a href='https://developers.facebook.com/' target='_blank'>here</a>, and test <a href='https://developers.facebook.com/tools/explorer/145634995501895'>here</a>
 		<?PHP
 	}
