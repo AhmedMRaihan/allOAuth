@@ -16,11 +16,11 @@ public function __construct($provider, $whereToReturnOnSuccess=null) {
 		
 	if( $this->PROVIDER == 'google')
 	{
-		$this->PROVIDER_ICON_LOCATION = "https://i.imgur.com/fNLRxeF.png"; // plugins_url() . "/allOAuth/images/google_signin.png";
+		$this->PROVIDER_ICON_LOCATION = plugins_url() . "/allOAuth/images/google_signin.png";
 	}
 	else if( $this->PROVIDER == 'facebook')
 	{
-		$this->PROVIDER_ICON_LOCATION = "https://i.imgur.com/4xaw1sD.png"; //plugins_url() . "/allOAuth/images/fblogin.png";
+		$this->PROVIDER_ICON_LOCATION = plugins_url() . "/allOAuth/images/fblogin.png";
 	}
 	else
 		throw new Exception("Invalid provider: $provider");
