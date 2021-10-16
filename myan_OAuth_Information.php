@@ -45,6 +45,9 @@ private function js_connect_info_facebook(){
 			"clientId" : FACEBOOK_CLIENT_ID,
 			"redirectURI" : "<?PHP bloginfo("wpurl");?>/wp-admin/admin-ajax.php?action=myan_goauth_login" //If necessary this url must end with '/'
 		};
+		if (req.clientId == "") {
+			alert("Please contact with site administrator to setup Facebook client id")
+		}
 		var loginUrl= req.authUrl+'?response_type=token&client_id='+req.clientId;
 		loginUrl += '&scope=email&state=facebook_'+encodeURIComponent(encodeURIComponent(<?PHP echo $this->whereToReturnOnSuccess; ?>));
 		loginUrl += '&redirect_uri='+encodeURIComponent(req.redirectURI);
@@ -82,6 +85,9 @@ private function js_connect_info_google(){
 		"scopes" : [ EMAIL_SCOPE ], //"scopes" : [ PLUS_ME_SCOPE, PLUS_ANOTHER_SCOPE ]
 		"redirectURI" : "<?PHP bloginfo("wpurl");?>/wp-admin/admin-ajax.php?action=myan_goauth_login" //If necessary this url must end with '/'
 		};
+		if (req.clientId == "") {
+			alert("Please contact with site administrator to setup Google client id")
+		}
 		var loginUrl= req.authUrl+'?response_type=token&include_granted_scopes=true&client_id='+req.clientId;
 		loginUrl += '&scope='+req.scopes.join(' ');
 		loginUrl += '&state=google_'+encodeURIComponent(encodeURIComponent(<?PHP echo $this->whereToReturnOnSuccess; ?>));

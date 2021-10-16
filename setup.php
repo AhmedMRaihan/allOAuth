@@ -132,11 +132,11 @@ class oauth_options_page {
 	function login_message_customOAuth() {
 		if( is_user_logged_in() == false && function_exists('execute_ALSDKFLSDMC347529DFIDK823'))
 		{
-			echo '<ul><li style="float:right;list-style:none; margin: 5px;">';
+			echo '<ul><li style="display: inline-block; margin: 0px 5px;">';
 			execute_ALSDKFLSDMC347529DFIDK823('google', get_bloginfo('wpurl').'/wp-admin');
 			echo '</li>';
 			
-			echo '<li style="float:right;list-style:none; margin: 5px;">';
+			echo '<li style="display: inline-block; margin: 0px 5px;">';
 			execute_ALSDKFLSDMC347529DFIDK823('facebook', get_bloginfo('wpurl').'/wp-admin');
 			echo '</li></ul>';
 		}
