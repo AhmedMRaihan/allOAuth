@@ -3,10 +3,11 @@ A simple yet feature rich plugin to allow visitors and users login via Google an
 
 # Version history
 
-## 7.5
+## 7.6
  * Localization included
  * Removed very old release notes
  * Updated signin images as per brand guideline
+ * Security issue patching
 ## 6.2
  * To integrate WP Pusher, OAuth images are stored in uploads folder
 ## 5.1
