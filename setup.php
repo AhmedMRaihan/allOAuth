@@ -204,17 +204,6 @@ class oauth_options_page {
 		<meta property="og:description" content="<?PHP echo htmlentities($description, ENT_QUOTES); ?>" />
 <?PHP
 	}
-	
-	function guidv4()
-	{
-		if (function_exists('com_create_guid') === true)
-			return trim(com_create_guid(), '{}');
-
-		$data = openssl_random_pseudo_bytes(16);
-		$data[6] = chr(ord($data[6]) & 0x0f | 0x40); // set version to 0100
-		$data[8] = chr(ord($data[8]) & 0x3f | 0x80); // set bits 6-7 to 10
-		return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
-	}
 
 	function general_oauth_menupage(){
 		if( isset($_GET['gplus_oauth_appid_value']) )
@@ -225,14 +214,7 @@ class oauth_options_page {
 		{
 			update_option("facebook_oauth_appid_value", $_GET['facebook_oauth_appid_value']);
 		}
-		if( isset($_GET['general_oauth_password']) )
-		{
-			$passwordOAuth = $_GET['general_oauth_password'];
-			if (strlen($passwordOAuth) < 32) {
-				$passwordOAuth = $this->guidv4();
-			}
-			update_option("general_oauth_password", $passwordOAuth);
-		}
+		
 		if( isset($_GET['general_oauth_showProfilePic']) )
 		{
 			update_option("general_oauth_showProfilePic", $_GET['general_oauth_showProfilePic']);
@@ -246,7 +228,6 @@ class oauth_options_page {
 			update_option("general_oauth_openGraphPublisher", $_GET['general_oauth_openGraphPublisher']);
 		}
 		$pageURL = get_bloginfo('wpurl'). "/wp-admin/options-general.php?page=general_oauth_appid";
-		$valueForPassword = get_option('general_oauth_password');
 		$valueFromWPGoogle = get_option('gplus_oauth_appid_value');
 		$valueFromWPFacebook = get_option('facebook_oauth_appid_value');
 		$valueForOGImage = get_option('general_oauth_openGraphImage', 'https://openclipart.org/image/2400px/svg_to_png/237756/KnightHorseback3.png');
@@ -254,7 +235,6 @@ class oauth_options_page {
 		$valueForProfilePic = get_option('general_oauth_showProfilePic');
 		
 		$inputValues = array();
-		$inputValues[] = (object) array('message'=>'OAuth password for all user', 'value' => $valueForPassword, 'name' => 'general_oauth_password');
 		$inputValues[] = (object) array('message'=>'Type a google app id*', 'value' => $valueFromWPGoogle, 'name' => 'gplus_oauth_appid_value');
 		$inputValues[] = (object) array('message'=>'Type a facebook app id**', 'value' => $valueFromWPFacebook, 'name' => 'facebook_oauth_appid_value');
 		$inputValues[] = (object) array('message'=>'Open graph image url', 'value' => $valueForOGImage, 'name' => 'general_oauth_openGraphImage');
