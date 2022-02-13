@@ -6,7 +6,7 @@ Plugin Name: OAuthLogin Support
 Plugin URI: https://github.com/AhmedMRaihan/allOAuth
 Description: This plugin allow users to login via Google and Facebook's OAuth.
 Author: seoul
-Author URI: http://www.mythicangel.com
+Author URI: https://raihan.com.bd
 Version: 7.6
 */
 include_once ("myan_OAuth_Information.php");
@@ -24,8 +24,10 @@ function allOAuth_load_textdomain() {
 	$plugin = 'allOAuth';
 	$mofile = $plugin . '-' . $locale . '.mo';
 
-	$domain_path = path_join( WP_PLUGIN_DIR, "{$plugin}/languages" );
-	load_textdomain( $plugin, path_join( $domain_path, $mofile ) );
+	$mo_file_path = path_join( WP_PLUGIN_DIR, "{$plugin}/languages", $mofile );
+	if (file_exists($mo_file_path)) {
+		load_textdomain( $plugin, $mo_file_path );
+	}
 }
 
 function myan_delete_user( $user_id ) {

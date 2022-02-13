@@ -3,7 +3,7 @@ A simple yet feature rich plugin to allow visitors and users login via Google an
 
 # Version history
 
-## 7.6
+## 7.7
  * Localization included
  * Removed very old release notes
  * Updated signin images as per brand guideline
