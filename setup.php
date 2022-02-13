@@ -7,7 +7,7 @@ Plugin URI: https://github.com/AhmedMRaihan/allOAuth
 Description: This plugin allow users to login via Google and Facebook's OAuth.
 Author: seoul
 Author URI: https://raihan.com.bd
-Version: 7.6
+Version: 7.7
 */
 include_once ("myan_OAuth_Information.php");
 include_once ("ajax_endpoints.php");
