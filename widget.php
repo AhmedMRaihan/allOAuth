@@ -24,8 +24,8 @@ class OAuthButton_Widget extends \WP_Widget {
 	public function widget( $args, $instance ) {
 		if( is_user_logged_in() == false && function_exists('execute_ALSDKFLSDMC347529DFIDK823'))
 		{?>
-		<div class="sidebar-widget widget_search widget-area">
-			<div class="widget-title" style="margin-bottom:5px"><h5 class="title">সহজেই লগইন করুন</h5></div>
+		<div class="">
+			<div class="widget-title" style="margin-bottom:5px"><h2 class="title">সহজেই লগইন করুন</h2></div>
 		<?PHP
 			if($instance['gplus_oauth_providerGoogle'])
 			{	
