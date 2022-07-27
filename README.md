@@ -3,7 +3,8 @@ A simple yet feature rich plugin to allow visitors and users login via Google an
 
 # Version history
 
-## 7.7
+## 7.8
+ * UI fixed for Wordpress 2021 theme
  * Localization included
  * Removed very old release notes
  * Updated signin images as per brand guideline
